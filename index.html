@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/index.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.2/dist/Chart.min.css"> -->
+</head>
+
+<body>
+  <div class="col-top">
+    <div class="left">
+      <div class="Weather">
+        <div class="col-Weather app">
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div id="testbattery" data-percent="0"></div>
+      <!-- <div id="battery" class="battery">
+        <div class="battery-container ">
+
+          <div class="battery-bar"></div>
+
+          <div class="battery-indicator" level=''></div>
+        </div> -->
+      <div class="col-water">
+
+        <div id="speedmeter">
+          <div class="gauge"
+            style="--kmh: 0; --start-angle: 0deg; --digits-angle: 30deg; --lines-count: 5; --digits-count: 10; --gauge-value: var(--kmh) / 30;">
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">0</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">30</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">60</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">90</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">120</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">150</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">180</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">200</div>
+            </div>
+
+
+
+            <div class="pointer">
+              <div class="hand"></div>
+            </div>
+          </div>
+        </div>
+        <div id="speedmeter2">
+          <div class="gauge"
+            style="--kmh: 0; --start-angle: 0deg; --digits-angle: 30deg; --lines-count: 5; --digits-count: 10; --gauge-value: var(--kmh) / 30;">
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">0</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">30</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">60</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">90</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">120</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">150</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">180</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">200</div>
+            </div>
+
+
+
+            <div class="pointer">
+              <div class="hand"></div>
+            </div>
+          </div>
+        </div>
+        <div id="speedmeter3">
+          <div class="gauge"
+            style="--kmh: 0; --start-angle: 0deg; --digits-angle: 30deg; --lines-count: 5; --digits-count: 10; --gauge-value: var(--kmh) / 30;">
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">0</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">30</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">60</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">90</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">120</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">150</div>
+            </div>
+
+            <div class="highlighted digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">180</div>
+            </div>
+
+            <div class="digit">
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+              <span class="separating line"></span>
+              <span class="line"></span>
+
+              <div class="label">200</div>
+            </div>
+
+
+
+            <div class="pointer">
+              <div class="hand"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  </div>
+
+  <div class="col-bottom">
+
+    <div class="gaugel">
+      <p>1 Person</p>
+      <h1 id="p1"></h1>
+    </div>
+    <div class="gaugel">
+      <p>2 Person</p>
+      <h1 id="p2"></h1>
+    </div>
+
+  </div>
+
+  </div>
+
+  <footer>
+    <svg viewBox="0 0 120 28">
+    </svg>
+
+  </footer>
+  <true />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="AppleClasses/AppleWidget.js"> widget.notifyContentIsReady()</script> -->
+  <script>
+    let updateKmh11 = 0;
+    let updateKmh12 = 0;
+    let updateKmh13 = 0;
+    let batterry = 0;
+
+    $(document).ready(function () {
+
+      $.ajax({
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8Mt2QQ-eQQgd1L0Z5TcPMNR9Yd7Wa3B715d3AEeZPkyThxoZtWlQhc7nKTYzUU0pZ_vAVDvIIy5iT/pub?output=csv",
+
+        success: function (data) {
+
+
+
+          var item = data.split("\n");
+          console.log(item[item.length - 1]);
+          updateKmh11 = (Number(item[item.length - 1].split(",")[2]));
+          updateKmh12 = Math.ceil(Number(item[item.length - 1].split(",")[3]));
+          updateKmh13 = Math.ceil(Number(item[item.length - 1].split(",")[4]));
+          batterry = Math.ceil(Number(item[item.length - 1].split(",")[5]));
+          updateKmh(updateKmh11);
+          updateKmh2(updateKmh12);
+          // updateKmh3(updateKmh13);
+          updateKmh3(updateKmh11 * updateKmh12)
+          updateBattery(batterry);
+          console.log(batterry);
+        },
+
+
+
+        error: function () {
+          console.log("error");
+        },
+      });
+
+    });
+
+
+    const to = setInterval(() => {
+      $.ajax({
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR8Mt2QQ-eQQgd1L0Z5TcPMNR9Yd7Wa3B715d3AEeZPkyThxoZtWlQhc7nKTYzUU0pZ_vAVDvIIy5iT/pub?output=csv",
+        url2: "http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}",
+        success: function (data) {
+
+
+
+          var item = data.split("\n");
+          console.log("this is from setInterval every 10 Sec")
+          console.log(item[item.length - 1]);
+          updateKmh11 = Math.ceil(Number(item[item.length - 1].split(",")[2]));
+          updateKmh12 = Math.ceil(Number(item[item.length - 1].split(",")[3]));
+          updateKmh13 = Math.ceil(Number(item[item.length - 1].split(",")[4]));
+          batterry = Math.ceil(Number(item[item.length - 1].split(",")[5]));
+          updateKmh(updateKmh11);
+          updateKmh2(updateKmh12);
+          // updateKmh3(updateKmh13);
+          updateKmh3(updateKmh11 * updateKmh12)
+          updateBattery(batterry);
+        }})
+      // updateKmh(updateKmh11);
+      // updateKmh2(updateKmh12);
+      // updateKmh3(updateKmh13);
+      // updateBattery(batterry);
+    }, 10000);
+
+
+    function updateKmh(value) {
+      document.querySelector('#speedmeter .gauge').style.setProperty('--kmh', Math.round(value));
+    }
+    function updateKmh2(value) {
+      document.querySelector('#speedmeter2 .gauge').style.setProperty('--kmh', Math.round(value));
+    }
+    function updateKmh3(value) {
+      document.querySelector('#speedmeter3 .gauge').style.setProperty('--kmh', Math.round(value));
+    }
+    // function updateBattery(value) {
+    //   document.querySelector('.battery');
+    // }
+
+
+    const updateUv = setInterval(() => {
+      console.log("update uv")
+      uvIndex()
+    },10000)
+
+    let percentall = 100;
+
+    const battery = document.querySelector('#battery');
+    const batteryBar = document.querySelector('#battery .battery-bar');
+    const batteryIndicator = document.querySelector('#battery .battery-indicator');
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    let dateObj = new Date();
+    let month = monthNames[dateObj.getUTCMonth()];
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+
+    let newdate = `${day} ${month} ${year}`;
+
+    const app = document.querySelector('.app');
+
+
+    const apiKey = 'ada1f715672a438e9b9acaa7ea0e930b';
+    const latitude = '14.77706';
+    const longitude = '101.27151';
+    let uvdata = 10;
+    // console.log(apiKey);
+    const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily,alerts&appid=${apiKey}`;
+    function uvIndex() {
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const uvIndex = data.current.uvi;
+          uvdata = uvIndex
+          const uvData = document.getElementById('uvdata')
+          uvData.innerHTML = `${uvIndex}`
+          console.log(`UV Index: ${uvIndex}`);
+          // uvdata = uvIndex;
+        })
+        .catch(error => {
+          // console.error('Error fetching UV index:', error);
+        });
+    }
+    console.log(uvIndex())
+
+
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=Saraburi,th&APPID=2d48b1d7080d09ea964e645ccd1ec93f&units=metric')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+
+        app.insertAdjacentHTML('afterbegin', `<div class="bar">
+
+    </div><div class="titlebar">
+    <p class="date">${newdate}</p>
+    <h4 class="city">${data.name}</h4>
+    <p class="description">${data.weather[0].description}</p>
+    
+</div>
+<div class="temperature">
+    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" />
+    <h2>${Math.round(data.main.temp)}°C</h2>
+</div>
+<div class="temperature">
+    <p>UV</p>
+    <h2 id="uvdata"></h2>
+</div>
+
+`)
+      });
+
+
+
+
+    // navigator.getBattery().then((battery) => {
+    // updateBattery = function (value) {
+    // batteryBar.style.animationIterationCount = "initial";
+    //batteryIndicator.setAttribute('level', `${parseInt(battery.level * value)}%`);
+    //batteryBar.style.width = `${parseInt(battery.level * value)}%`;
+    //percentall = parseInt(battery.level * value);
+
+    // }
+
+    //battery.addEventListener("levelchange", function () {
+    //updateBattery();
+    // });
+    //});
+
+    function updateBattery(percent) {
+      const percentbattery = parseInt(percent)
+      var stDiv = document.getElementById('testbattery'); // Select the div with the ID "test"
+      stDiv.setAttribute('data-percent', percentbattery)
+      var styleAfter = 70
+      var width = (styleAfter * percentbattery) / 100;
+
+      // Create a new style element and add it to the document head
+      var styleElement = document.createElement('style');
+      styleElement.textContent = '#testbattery::after { width: ' + width + 'px; }';
+
+      // Append the style element to the document head
+      document.head.appendChild(styleElement);
+      if (percentbattery < 50 && percentbattery >= 11) {
+        stDiv.setAttribute('orange', '');
+      } else if (percentbattery <= 10) {
+        stDiv.setAttribute('red', '');
+      } else {
+        stDiv.setAttribute('green', '');
+      }
+
+      if (uvdata > 8) {
+        document.getElementById("p1").innerHTML = ((percent * 5.20) / 100).toFixed(1)
+        document.getElementById("p2").innerHTML = ((percent * 4.71) / 100).toFixed(1)
+        console.log(`Battery from UV ${percent}`)
+      } else {
+        document.getElementById("p1").innerHTML = ((percent * 4.84) / 100).toFixed(1)
+        document.getElementById("p2").innerHTML = ((percent * 4.40) / 100).toFixed(1)
+        console.log(`Battery from UV ${percent}`)
+      }
+    }
+
+
+
+
+    function speedDown() {
+      if (speed > 0) {
+        speed = Math.max(speed - 1, 0);
+      }
+    }
+
+
+
+
+
+  </script>
+  <script>
+
+    // $(document).ready(function () {
+    //   setInterval(function () {
+    //     $("#battery").load(window.location.href + " #battery");
+    //   }, 1000);
+    // });
+  </script>
+
+
+  <!-- <script>
+
+      function updateKmh(value) {
+        document.querySelector('#speedmeter .gauge').style.setProperty('--kmh', Math.round(value));
+      }
+      function updateKmh2(value) {
+        document.querySelector('#speedmeter .gauge2').style.setProperty('--kmh', Math.round(value));
+      }
+      function updateKmh3(value) {
+        document.querySelector('#speedmeter .gauge3').style.setProperty('--kmh', Math.round(value));
+      }
+      updateKmh(90);
+      updateKmh2(30);
+      updateKmh3(100);
+
+
+
+
+      function speedDown() {
+        if (speed > 0) {
+          speed = Math.max(speed - 1, 0);
+        }
+      }
+
+
+
+      const to = setInterval(() => {
+        // updateKmh(0);
+
+
+      }, 3000);
+    </script> -->
+
+</body>
+
+</html>
